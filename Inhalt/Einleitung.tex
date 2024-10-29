@@ -1,0 +1,40 @@
+% !TEX root = ../Projektdokumentation.tex
+\section{Einleitung}
+\label{sec:Einleitung}
+
+
+\subsection{Projektumfeld} 
+\label{sec:Projektumfeld}
+\begin{itemize}
+	\item Vonmählen ist ein deutsches Unternehmen, das sich auf die Entwicklung und Produktion von hochwertigen, 
+	designorientierten Lifestyle-Technologieprodukten spezialisiert hat. Die Firma bietet innovative Zubehörlösungen 
+	für den täglichen Gebrauch, insbesondere im Bereich Smartphone- und Technik-Accessoires.
+\end{itemize}
+\subsection{Projektbeschreibung}
+\label{sec:Projektbeschreibung}
+\begin{itemize}
+	\item Die Firma Vonmählen versendet jährlich ca. 4.500 Warensendungen über einen externen Dienstleister. Jede Sendung erhält dabei eine Trackingnummer, die vom Versanddienstleister direkt an die Business Central API der Firma VonMählen übermittelt und mit dem entsprechenden Lieferauftrag verknüpft wird.
+	Ab diesem Punkt beginnt ein manueller Prozess: Ein Mitarbeiter der SCM-Abteilung überprüft täglich die Verkaufsaufträge, um festzustellen, welche bereits eine Trackingnummer erhalten haben. Im Anschluss wird jede dieser Trackingnummern im Webportal des Versanddienstleisters nachverfolgt, um den aktuellen Status und die Dauer des Transports zu überprüfen.
+	
+\end{itemize}			
+
+\subsection{Projektziel} 
+\label{sec:Projektziel}
+
+\begin{itemize}
+	\item Das Ziel des Projekts ist die Automatisierung der Prüfung von Warensendungen. Dazu soll täglich der aktuelle Status der Trackingnummern beim Versanddienstleister abgerufen und in einer PostgreSQL-Datenbank gespeichert werden. Anschließend werden die Trackingnummern aus dem ERP-System mit den Einträgen in der Datenbank verglichen und auf Übereinstimmung überprüft.
+	Auf die Daten sollen verschiedene Filter und Regeln angewendet werden, um eventuelle Unstimmigkeiten zu identifizieren. Bei Abweichungen oder Auffälligkeiten wird die zuständige Abteilung automatisch benachrichtigt.
+	
+\end{itemize}	
+
+
+\subsection{Projektbegründung} 
+\label{sec:Projektbegruendung}
+\begin{itemize}
+	\item Die größte Schwachstelle im aktuellen Prozess liegt im hohen manuellen Aufwand und der fehlenden Dokumentation. Täglich werden alle offenen Lieferaufträge nach solchen mit einer Trackingnummer durchsucht, was als Indikator dient, dass die Ware bereits auf dem Weg ist und überprüft werden muss. Dabei wird festgestellt, wie weit die Ware ist und ob Verzögerungen oder Probleme vorliegen.
+	Die Prüfung erfolgt durch Eingabe der Trackingnummer im Webportal des Versanddienstleisters (z. B. DPD). Je nach Lieferstatus wird dann entsprechend gehandelt, und bei Auffälligkeiten wird die zuständige Abteilung informiert. Dieser manuelle Prozess birgt jedoch das Risiko, dass Überprüfungen ausgelassen oder ganze Aufträge übersehen werden. Auch kann es bei Personalmangel zum vollständigen Ausfall der Prüfungen kommen.
+	Aufgrund dieser Fehleranfälligkeit und des hohen Zeitaufwands hat sich die Firma Vonmählen entschieden, den Prozess zu automatisieren, um die Effizienz zu steigern und die Prozesssicherheit nachhaltig zu gewährleisten.
+	
+\end{itemize}
+
+
